@@ -98,6 +98,14 @@ const Storage = {
     return promisify(store.count());
   },
 
+  async deleteAllenamento(id) {
+    const store = tx(this.db, 'allenamenti', 'readwrite');
+    await promisify(store.delete(id));
+    // rimuove anche il completamento associato, per non lasciare record orfani
+    const compStore = tx(this.db, 'completamenti', 'readwrite');
+    return promisify(compStore.delete(id));
+  },
+
   // ---- Completamenti ----
   async getCompletamento(id) {
     const store = tx(this.db, 'completamenti', 'readonly');

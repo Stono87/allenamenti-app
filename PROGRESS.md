@@ -37,10 +37,19 @@ PWA installabile su Pixel 8 (schermata Home, offline, senza store) per:
 - [x] Test: file serviti correttamente via http.server locale, sintassi JS validata
 - [x] Istruzioni installazione su Pixel 8 (vedi risposta in chat / README)
 
-## Stato: COMPLETO — v1 consegnata
+## Stato: v1 consegnata, v2 completata
+v2 (dopo hosting su GitHub):
+- [x] Cancellazione allenamento (db.js: deleteAllenamento, rimuove anche il completamento associato)
+- [x] Filtro/distinzione netta Nuoto/Casa: tab filtro Tutti/Nuoto/Casa + bordo superiore colorato sulla scheda (blu=nuoto, verde=casa)
+- [x] Schema import salvato in memoria di progetto in un file dedicato e autosufficiente
+  (area "allenamenti-import-schema"), cosicché un'altra chat del progetto possa generare
+  correttamente i JSON da importare senza dover rileggere questo progetto intero
+- [x] Service worker cache bump a v2 (necessario perché l'app è ora hostata su GitHub Pages:
+  senza il bump gli utenti vedrebbero ancora i file vecchi cacheati)
+
 Prossimi possibili sviluppi (non richiesti ora, solo annotati):
 - Icone più curate (attuali sono placeholder geometrici semplici)
-- Filtro/ricerca allenamenti se la lista cresce molto
+- Ricerca allenamenti se la lista cresce molto
 - Export dati (backup manuale dei completamenti)
 
 ## Come riprendere se la sessione si interrompe

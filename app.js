@@ -5,12 +5,14 @@
 
 let allenamenti = [];
 let completamenti = {};
-let indiceCorrente = 0;
+let indiceCorrente = 0; // indice dentro allenamentiFiltrati()
 let tabAttiva = 'allenamenti';
+let filtroTipo = 'tutti'; // 'tutti' | 'nuoto' | 'casa'
 
 const el = {
   main: document.getElementById('main-content'),
   dots: document.getElementById('progress-dots'),
+  filtroTipoBar: document.getElementById('filtro-tipo'),
   title: document.getElementById('header-title'),
   btnPrev: document.getElementById('btn-prev'),
   btnNext: document.getElementById('btn-next'),
@@ -40,7 +42,13 @@ async function init() {
 async function ricaricaDati() {
   allenamenti = await Storage.getAllAllenamenti();
   completamenti = await Storage.getAllCompletamenti();
-  if (indiceCorrente >= allenamenti.length) indiceCorrente = Math.max(0, allenamenti.length - 1);
+  const lista = allenamentiFiltrati();
+  if (indiceCorrente >= lista.length) indiceCorrente = Math.max(0, lista.length - 1);
+}
+
+function allenamentiFiltrati() {
+  if (filtroTipo === 'tutti') return allenamenti;
+  return allenamenti.filter(a => a.tipo === filtroTipo);
 }
 
 function attachEventListeners() {
@@ -48,7 +56,7 @@ function attachEventListeners() {
     if (indiceCorrente > 0) { indiceCorrente--; render(); }
   });
   el.btnNext.addEventListener('click', () => {
-    if (indiceCorrente < allenamenti.length - 1) { indiceCorrente++; render(); }
+    if (indiceCorrente < allenamentiFiltrati().length - 1) { indiceCorrente++; render(); }
   });
 
   el.tabButtons.forEach(btn => {
@@ -65,8 +73,9 @@ function attachEventListeners() {
   el.main.addEventListener('touchend', (e) => {
     if (touchStartX === null || tabAttiva !== 'allenamenti') return;
     const dx = e.changedTouches[0].clientX - touchStartX;
+    const lista = allenamentiFiltrati();
     if (Math.abs(dx) > 60) {
-      if (dx < 0 && indiceCorrente < allenamenti.length - 1) { indiceCorrente++; render(); }
+      if (dx < 0 && indiceCorrente < lista.length - 1) { indiceCorrente++; render(); }
       if (dx > 0 && indiceCorrente > 0) { indiceCorrente--; render(); }
     }
     touchStartX = null;
@@ -75,22 +84,46 @@ function attachEventListeners() {
 
 function render() {
   if (tabAttiva === 'allenamenti') {
+    renderFiltroTipo();
     renderHeaderAllenamenti();
     renderDots();
     renderScheda();
   } else {
+    el.filtroTipoBar.innerHTML = '';
+    el.filtroTipoBar.classList.add('hidden');
     renderHeaderImport();
     el.dots.innerHTML = '';
     renderImportView();
   }
 }
 
+function renderFiltroTipo() {
+  el.filtroTipoBar.classList.remove('hidden');
+  const opzioni = [
+    { key: 'tutti', label: 'Tutti' },
+    { key: 'nuoto', label: '🏊 Nuoto' },
+    { key: 'casa', label: '🏠 Casa' }
+  ];
+  el.filtroTipoBar.innerHTML = opzioni.map(o => `
+    <button class="filtro-btn ${o.key} ${filtroTipo === o.key ? 'attivo' : ''}" data-filtro="${o.key}">${o.label}</button>
+  `).join('');
+
+  el.filtroTipoBar.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtroTipo = btn.dataset.filtro;
+      indiceCorrente = 0;
+      render();
+    });
+  });
+}
+
 function renderHeaderAllenamenti() {
   el.btnPrev.classList.remove('hidden');
   el.btnNext.classList.remove('hidden');
+  const lista = allenamentiFiltrati();
   el.btnPrev.disabled = indiceCorrente === 0;
-  el.btnNext.disabled = indiceCorrente >= allenamenti.length - 1;
-  const a = allenamenti[indiceCorrente];
+  el.btnNext.disabled = indiceCorrente >= lista.length - 1;
+  const a = lista[indiceCorrente];
   el.title.textContent = a ? `${a.n}. ${a.titolo}` : 'Allenamenti';
 }
 
@@ -101,9 +134,10 @@ function renderHeaderImport() {
 }
 
 function renderDots() {
-  el.dots.innerHTML = allenamenti.map((a, i) => {
+  const lista = allenamentiFiltrati();
+  el.dots.innerHTML = lista.map((a, i) => {
     const fatto = completamenti[a.id] && completamenti[a.id].completato;
-    const classi = ['dot'];
+    const classi = ['dot', a.tipo === 'nuoto' ? 'nuoto-tipo' : 'casa-tipo'];
     if (i === indiceCorrente) classi.push('attivo');
     if (fatto) classi.push('fatto');
     return `<div class="${classi.join(' ')}" data-idx="${i}">${a.n}</div>`;
@@ -118,9 +152,13 @@ function renderDots() {
 }
 
 function renderScheda() {
-  const a = allenamenti[indiceCorrente];
+  const lista = allenamentiFiltrati();
+  const a = lista[indiceCorrente];
   if (!a) {
-    el.main.innerHTML = '<p style="text-align:center;color:#64748b;padding:40px 0;">Nessun allenamento. Vai su "Importa" per aggiungerne.</p>';
+    const msg = filtroTipo === 'tutti'
+      ? 'Nessun allenamento. Vai su "Importa" per aggiungerne.'
+      : `Nessun allenamento di tipo "${filtroTipo}".`;
+    el.main.innerHTML = `<p style="text-align:center;color:#64748b;padding:40px 0;">${msg}</p>`;
     return;
   }
 
@@ -162,6 +200,7 @@ function renderScheda() {
         <button class="completa-btn ${comp.completato ? 'completato' : ''}" id="btn-completa">
           ${comp.completato ? `✓ Completato${dataStr ? `<span class="data-completamento">${dataStr}</span>` : ''}` : 'Segna come completato'}
         </button>
+        <button class="elimina-btn" id="btn-elimina">🗑 Elimina allenamento</button>
       </div>
     </div>
   `;
@@ -170,6 +209,14 @@ function renderScheda() {
     const nuovoStato = !(completamenti[a.id] && completamenti[a.id].completato);
     const record = await Storage.setCompletato(a.id, nuovoStato);
     completamenti[a.id] = record;
+    render();
+  });
+
+  document.getElementById('btn-elimina').addEventListener('click', async () => {
+    const conferma = confirm(`Eliminare definitivamente "${a.titolo}"? Anche lo stato di completamento verrà rimosso. L'azione non è reversibile.`);
+    if (!conferma) return;
+    await Storage.deleteAllenamento(a.id);
+    await ricaricaDati();
     render();
   });
 }

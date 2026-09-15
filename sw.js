@@ -7,7 +7,7 @@
  * IndexedDB (db.js) NON sono toccati da questo meccanismo: restano intatti.
  */
 
-const CACHE_NAME = 'allenamenti-cache-v1';
+const CACHE_NAME = 'allenamenti-cache-v2';
 const FILES_TO_CACHE = [
   './index.html',
   './style.css',
