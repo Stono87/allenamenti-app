@@ -1,0 +1,174 @@
+{
+  "allenamenti": [
+    {
+      "id": "a1",
+      "n": 1,
+      "titolo": "Piramidale Inversa",
+      "tipo": "nuoto",
+      "durata": "50 min",
+      "volume": "2200m",
+      "fase": "Base",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL sciolto", "100m dorso sciolto", "4×40m gambe rana · rec 10\"", "→ 360m"] },
+        { "titolo": "Blocco A — Piramidale SL", "righe": ["200+160+120+80+40m SL · rec scalari · FC 130–145", "→ 100m sciolto misto", "→ 700m"] },
+        { "titolo": "Blocco B — Dorso completo", "righe": ["6×80m dorso completo · rec 25\" · FC 125–138", "→ 100m sciolto misto", "→ 580m"] },
+        { "titolo": "Blocco C — Rana", "righe": ["6×60m rana · rec 20\" · FC 120–135", "→ 360m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto → 200m"] }
+      ],
+      "totale": "360 + 700 + 580 + 360 + 200 = 2200m"
+    },
+    {
+      "id": "a2",
+      "n": 2,
+      "titolo": "Progressivo per Stili",
+      "tipo": "nuoto",
+      "durata": "48–50 min",
+      "volume": "2000m",
+      "fase": "Base",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL sciolto", "100m dorso sciolto", "4×40m gambe SL · rec 10\"", "→ 360m"] },
+        { "titolo": "Blocco A — Progressivo SL", "righe": ["4×100m SL: 1ª tranquillo, 2ª medio, 3ª sostenuto, 4ª medio · rec 30\" · FC 128–142", "→ 100m sciolto misto", "→ 500m"] },
+        { "titolo": "Blocco B — Dorso continuo", "righe": ["3×120m dorso completo · rec 30\" · FC 122–135", "→ 100m sciolto misto", "→ 460m"] },
+        { "titolo": "Blocco C — Rana frazionata", "righe": ["8×60m rana · rec 20\" · FC 118–132", "→ 480m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto → 200m"] }
+      ],
+      "totale": "360 + 500 + 460 + 480 + 200 = 2000m"
+    },
+    {
+      "id": "a3",
+      "n": 3,
+      "titolo": "Circuit Elastici Base",
+      "tipo": "casa",
+      "durata": "38–42 min",
+      "volume": "—",
+      "fase": "Base",
+      "sezioni": [
+        { "titolo": "Riscaldamento (5')", "righe": ["Marcia sul posto, rotazioni spalle, mobilità anche, respirazione consapevole"] },
+        { "titolo": "Blocco A — Tronco e spalle (2 giri · rec 60\" tra giri)", "righe": ["Rematore con elastico ×15 (espirazione nello sforzo)", "Press orizzontale elastico ×12", "Extrarotazione spalle ×15 per lato", "Plank statico 30\""] },
+        { "titolo": "Blocco B — Core e glutei (2 giri · rec 60\" tra giri)", "righe": ["Dead bug ×10 per lato", "Ponte glutei con elastico sulle cosce ×15", "Bird-dog ×10 per lato", "Lateral band walk ×12 per lato"] },
+        { "titolo": "Blocco C — Cardio leggero (1 giro continuo · FC ≤ 140)", "righe": ["Step touch laterale 60\"", "Squat con elastico ×15", "Rowing in piedi elastico ×15", "Respirazione diaframmatica 30\""] },
+        { "titolo": "Defaticamento (5')", "righe": ["Stretching catena posteriore, spalle, quadricipiti"] }
+      ],
+      "totale": "FC target 110–138 BPM"
+    },
+    {
+      "id": "a4",
+      "n": 4,
+      "titolo": "Ripetute Miste + Fartlek",
+      "tipo": "nuoto",
+      "durata": "49–52 min",
+      "volume": "2140m",
+      "fase": "Sviluppo",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL + 100m dorso + 2×80m gambe SL rec 15\"", "→ 360m"] },
+        { "titolo": "Blocco A — Ripetute SL medie", "righe": ["6×80m SL · rec 20\" · FC 132–145", "→ 100m sciolto dorso", "→ 580m"] },
+        { "titolo": "Blocco B — Fartlek dorso", "righe": ["3×200m dorso: variazione ritmo ogni 40m (20m lento / 20m sostenuto) · rec 40\" · FC 125–140", "→ 80m sciolto misto", "→ 680m"] },
+        { "titolo": "Blocco C — Rana tecnica", "righe": ["4×80m rana · enfasi sulla planata · rec 25\" · FC 118–130", "→ 320m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto → 200m"] }
+      ],
+      "totale": "360 + 580 + 680 + 320 + 200 = 2140m"
+    },
+    {
+      "id": "a5",
+      "n": 5,
+      "titolo": "Forza Funzionale Elastici",
+      "tipo": "casa",
+      "durata": "43–47 min",
+      "volume": "—",
+      "fase": "Sviluppo",
+      "sezioni": [
+        { "titolo": "Riscaldamento (5')", "righe": ["Mobilità toracica, attivazione glutei, respirazione"] },
+        { "titolo": "Blocco A — Forza tronco superiore (3 giri · rec 60\")", "righe": ["Rematore unilaterale elastico ×12 per lato", "Pull-apart elastico ×15", "Facepull con elastico ×15", "Push-up lento (4-1-2) ×10"] },
+        { "titolo": "Blocco B — Forza tronco inferiore (3 giri · rec 60\")", "righe": ["Squat con elastico ×15 (espira nello sforzo)", "Stacchi rumeni con elastico ×12", "Ponte glutei monopodalico ×10 per lato", "Abduzione laterale con elastico ×15"] },
+        { "titolo": "Blocco C — Stabilità e core (2 giri · rec 45\")", "righe": ["Plank con sollevamento alternato gambe 30\"", "Hollow body hold 20\"", "Russian twist senza peso ×20 totali", "Respirazione 60\""] },
+        { "titolo": "Defaticamento (5')", "righe": ["Stretching completo · enfasi su catena posteriore e rotatori spalle"] }
+      ],
+      "totale": "FC target 115–140 BPM"
+    },
+    {
+      "id": "a6",
+      "n": 6,
+      "titolo": "Volume Continuo",
+      "tipo": "nuoto",
+      "durata": "50 min",
+      "volume": "2400m",
+      "fase": "Sviluppo (picco volume)",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL + 100m dorso + 4×40m gambe rana rec 10\"", "→ 360m"] },
+        { "titolo": "Blocco A — Continuo SL", "righe": ["500m SL a ritmo costante · FC 128–138", "→ 60m sciolto dorso", "→ 560m"] },
+        { "titolo": "Blocco B — Serie miste dorso/rana", "righe": ["8×60m alternati (dispari=dorso, pari=rana) · rec 20\" · FC 122–135", "→ 100m sciolto SL", "→ 580m"] },
+        { "titolo": "Blocco C — Piramidale ascendente SL", "righe": ["40+80+120+160+200m SL · rec scalari (10\"/15\"/20\"/25\"/30\") · FC 130–145", "→ 600m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto + 100m dorso sciolto → 300m"] }
+      ],
+      "totale": "360 + 560 + 580 + 600 + 300 = 2400m"
+    },
+    {
+      "id": "a7",
+      "n": 7,
+      "titolo": "Densità Aerobica (Tabata adattato)",
+      "tipo": "casa",
+      "durata": "43–47 min",
+      "volume": "—",
+      "fase": "Sviluppo",
+      "sezioni": [
+        { "titolo": "Riscaldamento (5')", "righe": ["Mobilità, attivazione, respirazione diaframmatica"] },
+        { "titolo": "Blocco A — Cardio-forza (3 giri · lavoro 35\" / rec 25\" · rec 90\" tra giri)", "righe": ["Squat con elastico", "Rematore bilaterale elastico", "Step touch veloce (no salti)", "Plank con tocco spalle alternato"] },
+        { "titolo": "Blocco B — Core progressivo (2 giri · rec 60\")", "righe": ["Dead bug lento ×10 per lato", "Hollow hold 25\"", "Side plank 25\" per lato", "Superman hold 3×5\" con espiro"] },
+        { "titolo": "Blocco C — Defaticamento aerobico", "righe": ["Marcia sul posto 90\"", "Respirazione 4-4-6 ×8 cicli", "Mobilità finale"] }
+      ],
+      "totale": "Blocco A FC 120–148 · Blocco C ≤ 120 · 43–47 min"
+    },
+    {
+      "id": "a8",
+      "n": 8,
+      "titolo": "Qualità Aerobica",
+      "tipo": "nuoto",
+      "durata": "49–52 min",
+      "volume": "~2180m",
+      "fase": "Intensificazione",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL + 100m dorso + 4×40m gambe rana rec 10\"", "→ 360m"] },
+        { "titolo": "Blocco A — Ripetute SL qualità", "righe": ["10×60m SL ritmo sostenuto-controllato · rec 15\" · FC 135–148", "→ 80m sciolto misto", "→ 680m"] },
+        { "titolo": "Blocco B — Continuo dorso", "righe": ["400m dorso a ritmo costante medio · FC 128–140", "→ 60m sciolto SL", "→ 460m"] },
+        { "titolo": "Blocco C — Rana qualità", "righe": ["6×80m rana con planata lunga · rec 20\" · FC 128–140", "→ 480m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto → 200m"] }
+      ],
+      "totale": "360 + 680 + 460 + 480 + 200 = 2180m"
+    },
+    {
+      "id": "a9",
+      "n": 9,
+      "titolo": "Forza e Resistenza Avanzata",
+      "tipo": "casa",
+      "durata": "48–52 min",
+      "volume": "—",
+      "fase": "Intensificazione",
+      "sezioni": [
+        { "titolo": "Riscaldamento (5')", "righe": ["Mobilità articolare completa, attivazione core, respirazione"] },
+        { "titolo": "Blocco A — Forza spinta/trazione (3 giri · rec 75\")", "righe": ["Push-up lento 4-1-2 ×12", "Rematore elastico pesante ×10 per lato", "Press orizzontale elastico ×12", "Facepull elastico ×15"] },
+        { "titolo": "Blocco B — Forza gambe/glutei (3 giri · rec 75\")", "righe": ["Squat elastico pesante ×15 (espira nello sforzo)", "Stacco rumeno elastico ×12", "Affondi statici ×10 per lato", "Ponte glutei monopodalico ×12 per lato"] },
+        { "titolo": "Blocco C — Core avanzato (2 giri · rec 60\")", "righe": ["Plank dinamico up-down ×8", "Hollow body 30\"", "Dead bug lento ×12 per lato", "Respirazione diaframmatica 60\""] },
+        { "titolo": "Defaticamento (5')", "righe": ["Stretching completo · focus mobilità toracica"] }
+      ],
+      "totale": "Espira sistematicamente in ogni sforzo · no apnea · FC 118–142"
+    },
+    {
+      "id": "a10",
+      "n": 10,
+      "titolo": "Test Cronometrico Finale",
+      "tipo": "nuoto",
+      "durata": "50 min",
+      "volume": "2320m",
+      "fase": "Valutazione progressi",
+      "sezioni": [
+        { "titolo": "Riscaldamento (8')", "righe": ["100m SL + 100m dorso + 4×40m gambe rana rec 10\"", "→ 360m"] },
+        { "titolo": "Blocco A — Ripetute SL progressione", "righe": ["5×100m SL (1ª lento, 2ª medio, 3ª sostenuto, 4ª sostenuto, 5ª medio ritorno) · rec 25\" · FC 130–148", "→ 100m sciolto dorso", "→ 600m"] },
+        { "titolo": "Blocco B — Test piramidale dorso", "righe": ["40+80+120+80+40m dorso · rec scalari · FC 128–142", "→ 80m sciolto misto", "→ 440m"] },
+        { "titolo": "Blocco C — Fondo rana", "righe": ["2×200m rana ritmo gara controllato · rec 60\" · FC 130–145", "→ 400m"] },
+        { "titolo": "Blocco D — Finale SL qualità", "righe": ["4×80m SL · rec 20\" · FC 135–148", "→ 320m"] },
+        { "titolo": "Defaticamento", "righe": ["200m misto sciolto → 200m"] }
+      ],
+      "totale": "360 + 600 + 440 + 400 + 320 + 200 = 2320m"
+    }
+  ]
+}
